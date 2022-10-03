@@ -6,7 +6,7 @@
         <div class="card-body p-0">
           <ul
             class="list-unstyled"
-            style="height: 300px; overflow-y: scroll"
+            style="height: 400px; overflow-y: scroll"
             v-chat-scroll
           >
             <div v-for="(message, index) in messages" :key="'B' + index">
@@ -16,8 +16,8 @@
                 alt="Avatar"
                 style="width: 100%"
               /> -->
-                <strong :class="user.id === message.user.id ? 'text-white time-right' : ''">{{ message.user.name }}</strong><br>
-                <p :class="user.id === message.user.id ? 'text-white time-right' : ''">{{ message.message }}</p><br>
+                <strong :class="user.id === message.user.id ? 'text-white time-right' : ''">{{ message.user.name }}</strong><span v-if="user.id === message.user.id"><br></span>
+                <p :class="user.id === message.user.id ? 'text-white time-right' : ''">{{ message.message }}</p><span v-if="user.id === message.user.id"><br><br></span>
                  <span :class="user.id === message.user.id ? 'text-white time-left' : 'time-right'">{{
                   moment(message.created_at).format("LLLL")
                 }}</span>
@@ -68,7 +68,6 @@ export default {
       users: [],
       activeUser: false,
       typingTimer: false,
-      non_logged_messages: [],
     };
   },
 
