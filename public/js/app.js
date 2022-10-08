@@ -1708,8 +1708,7 @@ __webpack_require__.r(__webpack_exports__);
       newMessage: "",
       users: [],
       activeUser: false,
-      typingTimer: false,
-      non_logged_messages: []
+      typingTimer: false
     };
   },
   created: function created() {
@@ -1799,7 +1798,7 @@ var render = function render() {
     }],
     staticClass: "list-unstyled",
     staticStyle: {
-      height: "300px",
+      height: "400px",
       "overflow-y": "scroll"
     }
   }, _vm._l(_vm.messages, function (message, index) {
@@ -1809,9 +1808,9 @@ var render = function render() {
       "class": _vm.user.id === message.user.id ? "container darker" : "container"
     }, [_c("strong", {
       "class": _vm.user.id === message.user.id ? "text-white time-right" : ""
-    }, [_vm._v(_vm._s(message.user.name))]), _c("br"), _vm._v(" "), _c("p", {
+    }, [_vm._v(_vm._s(message.user.name))]), _vm.user.id === message.user.id ? _c("span", [_c("br")]) : _vm._e(), _vm._v(" "), _c("p", {
       "class": _vm.user.id === message.user.id ? "text-white time-right" : ""
-    }, [_vm._v(_vm._s(message.message))]), _c("br"), _vm._v(" "), _c("span", {
+    }, [_vm._v(_vm._s(message.message))]), _vm.user.id === message.user.id ? _c("span", [_c("br"), _c("br")]) : _vm._e(), _vm._v(" "), _c("span", {
       "class": _vm.user.id === message.user.id ? "text-white time-left" : "time-right"
     }, [_vm._v(_vm._s(_vm.moment(message.created_at).format("LLLL")))])])]);
   }), 0)]), _vm._v(" "), _c("input", {
